@@ -1,8 +1,8 @@
 from fastapi import FastAPI, APIRouter
 from pydantic import BaseModel
 import requests
-
-from app import services as s
+import json
+import services as s
 
 router = APIRouter()
 
@@ -17,10 +17,10 @@ router = APIRouter()
 
 @router.get("/")
 def root():
-    return {"status: service a is healthy"}
+    return {"status": "service a is healthy"}
 
 
 @router.get("/service-b")
 def health_check_b():
-    response = requests.get(url="localhost:8001/")
+    response = json.loads(requests.get(url="http://b:8001/").text)
     return response

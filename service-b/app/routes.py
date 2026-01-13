@@ -1,17 +1,21 @@
 from fastapi import APIRouter
 import requests
+import json
 """from .schemas import Item
 from .storage import get_item, set_item"""
 
-router = APIRouter()
 
+
+router = APIRouter()
+  
 @router.get('/')
 def root():
     return {'status': 'service-b is healthy'}
+    
 
 @router.get('/service-a')
 def healthcheck_a():
-    response = requests.get(url='localhost:8001/')
+    response = json.loads(requests.get(url='http://a:8000/').text)
     return response
 
 """

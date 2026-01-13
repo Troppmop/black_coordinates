@@ -23,7 +23,7 @@ def add_item(item: Item):
     response = set_item(item.ip, item.lat, item.lon)
     return response
 
-@router.get('/items/')
-def retrieve(ip:str):
+@router.get('/items')
+def retrieve():
     response = get_all()
     return response

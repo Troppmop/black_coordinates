@@ -26,7 +26,7 @@ def post_ip(ip):
     relevant_data = s.extract_relevant_data(raw_response)
     return s.send_to_service_b(relevant_data)
 
-@router.get("/retrieve_data")
+@router.get("/items")
 def get_coordinates():
     return s.retrieve_coordinates()
 @router.get("/")    

@@ -47,6 +47,6 @@ def retrieve_coordinates():
     try:
         url = "http://b:8001/items"
         response = requests.get(url=url)
-        return response.text
+        return json.loads(response.text)
     except HTTPError as e:
         raise str(e)

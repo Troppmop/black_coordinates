@@ -7,8 +7,10 @@ def call_external_service(ip):
     response = requests.get(url=f"http://ip-api.com/json/{ip}")
     return response.text
 
-def extract_country(data):
+def extract_relevant_data(data):
     data = json.loads(data)
-    country = data["country"]
-    return country
+    coordinates = {"ip":data["ip"], "lat": data["lat"], "lon": data["lon"]}
+    return coordinates
+
+
 

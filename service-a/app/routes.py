@@ -10,10 +10,10 @@ import services as s, schemas as sc
 router = APIRouter()
 
 
-"""@router.post("/post_ip")
+@router.post("/post_ip")
 def post_ip(ip: sc.IpData):
     raw_response = s.call_external_service
-    s.extract_relevant_data(raw_response)"""
+    s.extract_relevant_data(raw_response)
     
 
 @router.get("/")

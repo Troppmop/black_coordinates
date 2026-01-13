@@ -2,7 +2,7 @@ from fastapi import APIRouter
 import requests
 import json
 from schemas import Item
-from storage import get_item, set_item
+from storage import get_all, set_item
 
 
 
@@ -20,7 +20,10 @@ def healthcheck_a():
 
 @router.post('/items')
 def add_item(item: Item):
-    set_item(item.ip, item.lat, item.lon)
+    response = set_item(item.ip, item.lat, item.lon)
+    return response
 
-"""@router.get('/items/{ip}')
-def retrieve(ip:str)"""
+@router.get('/items/')
+def retrieve(ip:str):
+    response = get_all()
+    return response

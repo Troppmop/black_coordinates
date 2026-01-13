@@ -1,4 +1,4 @@
-"""import redis
+import redis
 
 redis_client = redis.Redis(host='localhost', port=6379, db=0)
 
@@ -14,4 +14,3 @@ def get_item(item_id:int):
 def set_item(item_id:int, item_data):
     redis_client.setex(f"item_{item_id}", 3600, item_data)
     return {'message':'added'}
-"""

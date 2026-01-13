@@ -1,6 +1,6 @@
-"""from pydantic import BaseModel
+from pydantic import BaseModel
 
 class Item(BaseModel):
     ip: str
-    coords: dict
-"""
+    lat: float
+    lon: float

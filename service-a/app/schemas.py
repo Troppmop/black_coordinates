@@ -1,5 +1,6 @@
 from pydantic.networks import IPvAnyAddress
 from pydantic import BaseModel, ValidationError
+from pydantic_extra_types.coordinate import Longitude, Latitude
 
 
 class Ip(BaseModel):

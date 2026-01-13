@@ -9,10 +9,11 @@ router = APIRouter()
 
 
 @router.post("/post_ip")
-def post_ip(ip: sc.IpData):
+def post_ip(ip):
+    sc.validate_ip(ip)
     raw_response = s.call_external_service
     s.extract_relevant_data(raw_response)
-    
+
 
 @router.get("/")
 def root():

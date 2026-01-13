@@ -26,9 +26,10 @@ def post_ip(ip):
     relevant_data = s.extract_relevant_data(raw_response)
     return s.send_to_service_b(relevant_data)
 
-
-
-@router.get("/")
+@router.get("/retrieve_data")
+def get_coordinates():
+    return s.retrieve_coordinates()
+@router.get("/")    
 def root():
     return {"status": "service a is healthy"}
 

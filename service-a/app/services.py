@@ -39,3 +39,14 @@ def send_to_service_b(data):
         return response
     except HTTPError as e:
         raise str(e)
+
+def retrieve_coordinates():
+    """
+    this function requests the data base to retrieve all of the coordinates
+    """
+    try:
+        url = "http://b:8001/items"
+        response = requests.get(url=url)
+        return response.text
+    except HTTPError as e:
+        raise str(e)

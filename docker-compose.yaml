@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  a:
+    build: /service-a/app
+    ports:
+      - "8000:8000"
+  b:
+    build: /service-b/app
+    ports:
+      - "8001:8001"
+
+  
+
+

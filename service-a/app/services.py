@@ -12,9 +12,6 @@ def call_external_service(ip):
     
 def extract_relevant_data(data):
     data = json.loads(data)
-    coordinates = {"ip":data["ip"], "lat": data["lat"], "lon": data["lon"]}
+    coordinates = {"ip":data["query"], "lat": data["lat"], "lon": data["lon"]}
     return coordinates
-
-
-
 

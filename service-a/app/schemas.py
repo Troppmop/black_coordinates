@@ -7,6 +7,12 @@ class Location(BaseModel):
     coordinate: Coordinate
 
 def check_coordinate(latitude, longitude):
+    """
+    this function receives coordinates as an argument then validates it
+
+    :param latitude: latitude number
+    :param longitude: longitude number
+    """
     try:
         coordinate = Location(coordinate=(latitude, longitude))
         return {'latitude': coordinate.coordinate.latitude, 'longitude':coordinate.coordinate.longitude} 
@@ -17,6 +23,11 @@ class Ip(BaseModel):
     ip_address: IPvAnyAddress
 
 def validate_ip(ip):
+    """
+    this function receives ip as an argument then validates it
+
+    :param ip: ip address
+    """
     try:
         valid_ip = Ip(ip_address=ip)
         return valid_ip.ip_address

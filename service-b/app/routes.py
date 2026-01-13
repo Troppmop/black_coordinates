@@ -20,7 +20,10 @@ def healthcheck_a():
 
 @router.post('/items')
 def add_item(item: Item):
-    set_item(item.ip, item.lat, item.lon)
+    response = set_item(item.ip, item.lat, item.lon)
+    return response
 
-"""@router.get('/items/{ip}')
-def retrieve(ip:str)"""
+@router.get('/items/{ip}')
+def retrieve(ip:str):
+    response = get_item(ip)
+    return response

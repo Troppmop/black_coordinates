@@ -1,6 +1,7 @@
 import requests
 from requests import HTTPError
 import json
+import os
 
 
 def call_external_service(ip):
@@ -34,8 +35,8 @@ def send_to_service_b(data):
     :param data: ip and coordinates
     """
     try:
-        url = "http://b:8001/items"
-        response = json.loads(requests.post(url=url, json=data).text)
+        curl = os.getenv('INTERNAL_URL')
+        response = json.loads(requests.post(url=curl, json=data).text)
         return response
     except HTTPError as e:
         raise str(e)
@@ -45,8 +46,8 @@ def retrieve_coordinates():
     this function requests the data base to retrieve all of the coordinates
     """
     try:
-        url = "http://b:8001/items"
-        response = requests.get(url=url)
+        curl = os.getenv('INTERNAL_URL')
+        response = requests.get(url=curl)
         return json.loads(response.text)
     except HTTPError as e:
         raise str(e)

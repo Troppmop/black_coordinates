@@ -4,7 +4,8 @@ metadata:
   name: service-b-service
 spec:
   selector:
-    app.: service-b-deployment
+    app: service-b-deployment
   ports:
-      port: 80
-      targetPort: 80
+  - protocol: TCP
+    port: 8001
+    targetPort: 8001

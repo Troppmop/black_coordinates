@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: service-b-deployment
+  labels:
+    app: service-b-deployment
 spec:
   replicas: 1
   selector:
@@ -16,4 +18,9 @@ spec:
       - name: service-b-container
         image: kobigdocker/black_coordinates_b:v1
         ports:
-        - containerPort: 80
+        - containerPort: 8001
+        env:
+        - name: REDIS_HOST
+          value: "redis-statefulset-0.redis-headless"
+        - name: REDIS_PORT
+          value: "6379"

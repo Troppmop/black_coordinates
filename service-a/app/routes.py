@@ -2,6 +2,7 @@ from fastapi import FastAPI, APIRouter
 from pydantic import BaseModel
 import requests
 import json
+import os
 
 
 
@@ -29,6 +30,7 @@ def post_ip(ip):
 @router.get("/items")
 def get_coordinates():
     return s.retrieve_coordinates()
+
 @router.get("/")    
 def root():
     return {"status": "service a is healthy"}
@@ -36,5 +38,6 @@ def root():
 
 @router.get("/service-b")
 def health_check_b():
-    response = json.loads(requests.get(url="http://b:8001/").text)
+    curl = os.getenv('INTERNAL_URL')
+    response = json.loads(requests.get(url=curl).text)
     return response

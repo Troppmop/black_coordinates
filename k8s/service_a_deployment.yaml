@@ -2,18 +2,24 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: service-a-deployment
+  labels:
+    app: external-api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: service-a-deployment
+      app: external-api
   template:
     metadata:
       labels:
-        app: service-a-deployment
+        app: external-api
     spec:
       containers:
-      - name: service-a-container
+      - name: external-api
         image: kobigdocker/black_coordinates_a:v1
         ports:
-        - containerPort: 80
+        - containerPort: 8000
+        env:
+        - name: INTERNAL_URL
+          value: "http://service-b-service:8001/items"
+          

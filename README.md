@@ -1,4 +1,3 @@
-k8s branch
 # docker compose instructions (locally)
 (must clarify env vars issue)
 

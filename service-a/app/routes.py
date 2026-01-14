@@ -10,9 +10,11 @@ import services as s, schemas as sc
 
 router = APIRouter()
 
+class IPRequest(BaseModel):
+    ip: str
 
 @router.post("/post_ip")
-def post_ip(ip):
+def post_ip(request: IPRequest):
     """
     this function receives ip as an argument and calls four other functions:
     1: validate_ip() to validate the ip
@@ -22,6 +24,7 @@ def post_ip(ip):
 
     :param ip: user insert ip
     """
+    ip = request.ip
     sc.validate_ip(ip)
     raw_response = s.call_external_service(ip)
     relevant_data = s.extract_relevant_data(raw_response)

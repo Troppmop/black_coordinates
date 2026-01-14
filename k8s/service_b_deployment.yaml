@@ -17,6 +17,7 @@ spec:
       containers:
       - name: service-b-container
         image: kobigdocker/black_coordinates_b:v1
+        imagePullPolicy: Always
         ports:
         - containerPort: 8001
         env:

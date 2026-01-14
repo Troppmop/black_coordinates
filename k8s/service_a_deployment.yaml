@@ -15,8 +15,8 @@ spec:
         app: external-api
     spec:
       containers:
-      - name: external-api
-        image: kobigdocker/black_coordinates_a:v1
+      - name: external-api  
+        image: kobigdocker/black_coordinates_a:v2
         ports:
         - containerPort: 8000
         env:
